@@ -1,0 +1,15 @@
+{
+  "name": "playlists-service",
+  "version": "1.0.0",
+  "description": "Playlists microservice for the Streamflow system.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/Broukt/playlists-service"
+  },
+  "author": "Jairo Calcina",
+  "license": "ISC"
+}
