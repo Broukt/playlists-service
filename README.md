@@ -19,13 +19,13 @@ Microservicio de listas de reproducción para operaciones sobre las listas de re
 1. **Clonar el repositorio**
 
 ```bash
-git clone https://github.com/Broukt/users-service
+git clone https://github.com/Broukt/playlists-service
 ```
 
 2. **Ingresar al directorio del proyecto**
 
 ```bash
-cd users-service
+cd playlists-service
 ```
 
 3. **Instalar las dependencias**
@@ -64,7 +64,7 @@ npx prisma db push
 npm start
 ```
 
-El servidor se iniciará en el puerto **50051** (o en el puerto definido en la variable de entorno `PORT`). Accede a la API mediante `localhost:50051`.
+El servidor se iniciará en el puerto **50052** (o en el puerto definido en la variable de entorno `PORT`). Accede a la API mediante `localhost:50052`.
 
 ## Seeder
 
