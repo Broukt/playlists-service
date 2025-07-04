@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Video {
+  id             String          @id @default(uuid())
+  title          String
+  playlistVideos PlaylistVideo[]
+
+  @@index([title])
+}
+
+model Playlist {
+  id             String          @id @default(uuid())
+  name           String
+  userId         String
+  createdAt      DateTime        @default(now())
+  playlistVideos PlaylistVideo[]
+
+  @@index([name])
+}
+
+model PlaylistVideo {
+  id         String    @id @default(uuid())
+  playlistId String
+  videoId    String
+  createdAt  DateTime  @default(now())
+
+  playlist Playlist @relation(fields: [playlistId], references: [id])
+  video    Video    @relation(fields: [videoId], references: [id])
+
+  @@unique([playlistId, videoId])
+}
