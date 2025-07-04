@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package playlists;
+
+import "google/protobuf/empty.proto";
+
+service Playlists {
+  rpc CreatePlaylist(CreatePlaylistRequest) returns (CreatePlaylistResponse);
+  rpc AddVideoToPlaylist(AddVideoToPlaylistRequest)
+      returns (AddVideoToPlaylistResponse);
+  rpc RemoveVideoFromPlaylist(RemoveVideoFromPlaylistRequest)
+      returns (RemoveVideoFromPlaylistResponse);
+  rpc GetPlaylists(google.protobuf.Empty) returns (GetPlaylistsResponse);
+  rpc GetPlaylistVideos(GetPlaylistVideosRequest)
+      returns (GetPlaylistVideosResponse);
+  rpc DeletePlaylist(DeletePlaylistRequest) returns (DeletePlaylistResponse);
+}
+
+message Playlist {
+  string id = 1;
+  string name = 2;
+}
+
+message Video {
+  string id = 1;
+  string title = 2;
+}
+
+message CreatePlaylistRequest {
+  string name = 1;
+  string requestorId = 2;
+}
+
+message CreatePlaylistResponse {
+  int32 status = 1;
+  Playlist data = 2;
+}
+
+message AddVideoToPlaylistRequest {
+  string playlistId = 1;
+  string videoId = 2;
+  string requestorId = 3;
+}
+
+message AddVideoToPlaylistResponse { int32 status = 1; }
+
+message RemoveVideoFromPlaylistRequest {
+  string playlistId = 1;
+  string videoId = 2;
+  string requestorId = 3;
+}
+
+message RemoveVideoFromPlaylistResponse { int32 status = 1; }
+
+message GetPlaylistsResponse {
+  string status = 1;
+  repeated Playlist data = 2;
+}
+
+message GetPlaylistVideosRequest { string playlist_id = 1; }
+
+message GetPlaylistVideosResponse {
+  string status = 1;
+  repeated Video data = 2;
+}
+
+message DeletePlaylistRequest {
+  string playlist_id = 1;
+  string requestorId = 2;
+}
+
+message DeletePlaylistResponse { int32 status = 1; }
