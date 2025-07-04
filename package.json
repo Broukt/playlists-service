@@ -4,12 +4,21 @@
   "description": "Playlists microservice for the Streamflow system.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node src/database/seed.js"
   },
   "repository": {
     "type": "git",
     "url": "github.com/Broukt/playlists-service"
   },
   "author": "Jairo Calcina",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.13.4",
+    "@grpc/proto-loader": "^0.7.15",
+    "@prisma/client": "^6.9.0",
+    "amqplib": "^0.10.8",
+    "dotenv": "^16.5.0",
+    "prisma": "^6.9.0"
+  }
 }
