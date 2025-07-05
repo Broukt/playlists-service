@@ -1,7 +1,6 @@
 const { catchGrpc } = require("../utils/catchGrpc");
 const AppError = require("../utils/appError");
 const prisma = require("../database/prisma");
-const { status } = require("@grpc/grpc-js");
 
 const CreatePlaylist = catchGrpc(async (call, callback) => {
   const { name, requestorId } = call.request;
